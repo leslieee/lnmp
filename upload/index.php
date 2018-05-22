@@ -1,4 +1,6 @@
-imple PHP File Manager
+<?php
+/********************************
+Simple PHP File Manager
 Copyright John Campbell (jcampbell1)
 
 Liscense: MIT
