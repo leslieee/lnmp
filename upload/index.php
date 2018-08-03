@@ -10,7 +10,7 @@ Liscense: MIT
 error_reporting( error_reporting() & ~E_NOTICE );
 
 //Security options
-$allow_delete = true; // Set to false to disable delete button and delete POST request.
+$allow_delete = false; // Set to false to disable delete button and delete POST request.
 $allow_create_folder = true; // Set to false to disable folder creation
 $allow_upload = true; // Set to true to allow upload files
 $allow_direct_link = true; // Set to false to only allow downloads and not direct link
@@ -227,7 +227,7 @@ a.delete {display:inline-block;
         padding:4px 0 4px 20px;
 }
 </style>
-<script src="/jquery.min.js"></script>
+<script src="jquery.min.js"></script>
 <script>
 (function($){
         $.fn.tablesorter = function() {
@@ -371,7 +371,7 @@ $(function(){
                                 $.each(data.results,function(k,v){
                                         $tbody.append(renderFileRow(v));
                                 });
-                                !data.results.length && $tbody.append('<tr><td class="empty" colspan=5>This folder is empty</td></tr>')
+                                !data.results.length && $tbody.append('<tr><td class="empty" colspan=5>这个目录是空的</td></tr>')
                                 data.is_writable ? $('body').removeClass('no_write') : $('body').addClass('no_write');
                         } else {
                                 console.warn(data.error.msg);
@@ -435,7 +435,7 @@ $(function(){
 <div id="top">
    <?php if($allow_upload == true): ?>
         <form action="?" method="post" id="mkdir" />
-                <label for=dirname>Create New Folder</label><input id=dirname type=text name=name value="" />
+                <label for=dirname>创建新目录</label><input id=dirname type=text name=name value="" />
                 <input type="submit" value="create" />
         </form>
 
@@ -444,8 +444,8 @@ $(function(){
    <?php if($allow_upload == true): ?>
 
         <div id="file_drop_target">
-                Drag Files Here To Upload
-                <b>or</b>
+                拖入文件到这里
+                <b>或者</b>
                 <input type="file" multiple />
         </div>
    <?php endif; ?>
@@ -454,13 +454,13 @@ $(function(){
 
 <div id="upload_progress"></div>
 <table id="table"><thead><tr>
-        <th>Name</th>
-        <th>Size</th>
-        <th>Modified</th>
-        <th>Permissions</th>
-        <th>Actions</th>
+        <th>文件名</th>
+        <th>大小</th>
+        <th>修改日期</th>
+        <th>权限</th>
+        <th>执行</th>
 </tr></thead><tbody id="list">
 
 </tbody></table>
-<footer>simple php filemanager by <a href="https://github.com/jcampbell1">jcampbell1</a></footer>
+<!--<footer>simple php filemanager by <a href="https://github.com/jcampbell1">jcampbell1</a></footer>-->
 </body></html>
